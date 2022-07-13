@@ -10,8 +10,8 @@ namespace Demo
             using SqlConnection sqlConnection= new SqlConnection(Config.ConnectionString);
             sqlConnection.Open();
 
-            string employeeCountQuery = $"SELECT COUNT(*) AS [EmployeeCount]" +
-                              "FROM [Employees]";
+            string employeeCountQuery = @"SELECT COUNT(*) AS [EmployeeCount]
+                                            FROM [Employees]";
 
             SqlCommand employeeCountCommand = new SqlCommand(employeeCountQuery, sqlConnection);
 
