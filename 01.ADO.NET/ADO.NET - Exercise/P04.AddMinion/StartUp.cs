@@ -1,11 +1,11 @@
 ﻿namespace P04.AddMinion
 {
+
     using System;
     using System.Text;
     using System.Linq;
     using System.Data.SqlClient;
     using P04.AddMinion.Readers;
-
 
     public class StartUp
     {
