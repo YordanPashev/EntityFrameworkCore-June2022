@@ -16,15 +16,15 @@
             string SelectALlMinions = textReaderSelectAllMinionsQuery.Read();
             SqlCommand getAllMinionsCmd = new SqlCommand(SelectALlMinions, sqlConnection);
 
-            using SqlDataReader inionsReader = getAllMinionsCmd.ExecuteReader();
+            using SqlDataReader minionsReader = getAllMinionsCmd.ExecuteReader();
 
             List<string> minions = new List<string>();
 
-            while (inionsReader.Read() == true)
+            while (minionsReader.Read() == true)
             {
-                minions.Add($"{inionsReader["Name"]}");
+                minions.Add($"{minionsReader["Name"]}");
             }
-            inionsReader.Close();
+            minionsReader.Close();
 
             int firstMinionIndex = 0;
 
