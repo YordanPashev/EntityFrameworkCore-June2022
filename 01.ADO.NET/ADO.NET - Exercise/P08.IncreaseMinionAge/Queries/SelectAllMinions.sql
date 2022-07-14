@@ -1,3 +1,3 @@
 SELECT [Name],
-	   [Age]
+       [Age]
   FROM [Minions]
