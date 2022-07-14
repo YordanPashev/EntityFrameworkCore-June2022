@@ -31,7 +31,7 @@
 
             using SqlDataReader minionsReader = getAllMinionsCmd.ExecuteReader();
 
-           StringBuilder result = new StringBuilder();
+            StringBuilder result = new StringBuilder();
 
             while (minionsReader.Read() == true)
             {
