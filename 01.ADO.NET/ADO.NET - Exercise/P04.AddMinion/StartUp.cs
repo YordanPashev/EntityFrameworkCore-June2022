@@ -6,7 +6,6 @@
     using System.Data.SqlClient;
     using P04.AddMinion.Readers;
 
-
     public class StartUp
     {
         public static void Main(string[] args)
@@ -42,7 +41,6 @@
 
                 if (villainId == null)
                 {
-
                     villainId = GetVillainId(sqlConnection, villainName);
                 }
 
