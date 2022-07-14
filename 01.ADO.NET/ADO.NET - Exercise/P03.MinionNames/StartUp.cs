@@ -31,7 +31,6 @@
             if (villainName == null)
             {
                 Console.WriteLine($"No villain with ID {villainId} exists in the database.");
-                Environment.Exit(0);
             }
 
             else
@@ -44,27 +43,29 @@
 
         private static void DisplayVillainAndHisMinions(SqlDataReader minionsInfoReader, string villainName)
         {
-            Console.WriteLine($"Villain: {villainName}");
             StringBuilder result = new StringBuilder();
+            result.AppendLine($"Villain: {villainName}");
+
             int count = 0;
 
-            while (minionsInfoReader.Read() == true)
+            if (!minionsInfoReader.HasRows)
             {
-                count++;
-                string minionName = (string)minionsInfoReader["Minion Name"];
-                int minionAge = (int)minionsInfoReader["Minion Age"];
-                result.AppendLine($"{count}. {minionName} {minionAge}");
-            }
-
-            if (count == 0)
-            {
-                Console.WriteLine("(no minions)");
+                result.AppendLine("(no minions)");
             }
 
             else
             {
-                Console.WriteLine(result.ToString().TrimEnd());
+                while (minionsInfoReader.Read() == true)
+                {
+                    count++;
+                    string minionName = (string)minionsInfoReader["Minion Name"];
+                    int minionAge = (int)minionsInfoReader["Minion Age"];
+
+                    result.AppendLine($"{count}. {minionName} {minionAge}");
+                }
             }
+
+            Console.WriteLine(result.ToString().TrimEnd());          
         }
     }
 }
