@@ -1,2 +1,2 @@
-INSERT INTO [Villains]([Name])
-     VALUES (@VillainName)
+INSERT INTO [Villains]([Name], [EvilnessFactorId])
+     VALUES (@VillainName, 4)
