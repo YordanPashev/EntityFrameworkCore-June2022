@@ -5,15 +5,16 @@
     using System.Data.SqlClient;
     using P02.VillainNames.Readers;
 
-    public class Program
+    public class StartUp
     {
         public static void Main(string[] args)
         {
             using SqlConnection sqlConnection = new SqlConnection(Config.ConnectionString);
             sqlConnection.Open();
 
-            SQLQueryReader sqlQueryReader = new SQLQueryReader("Query");
-            string query = sqlQueryReader.ReadFileText();
+            TextReader sqlQueryTextReader = new TextReader("Query.sql");
+
+            string query = sqlQueryTextReader.Read();
 
             SqlCommand selecAllVilianWithTheCOUntOfTheirMinions = new SqlCommand(query, sqlConnection);
 

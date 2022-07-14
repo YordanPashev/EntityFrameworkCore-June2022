@@ -2,6 +2,6 @@
 {
     public interface IFilePathReader
     {
-        string ReadFileText();
+        string Read();
     }
 }
