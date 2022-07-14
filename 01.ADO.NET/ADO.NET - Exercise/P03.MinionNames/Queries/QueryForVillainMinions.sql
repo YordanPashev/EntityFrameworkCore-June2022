@@ -1,5 +1,5 @@
    SELECT m.[Name] AS [Minion Name],
-		  m.[Age] AS [Minion Age]
+	  m.[Age] AS [Minion Age]
      FROM [Villains] AS v
 LEFT JOIN [MinionsVillains] as mv
        ON v.[Id] = mv.[VillainId] 
