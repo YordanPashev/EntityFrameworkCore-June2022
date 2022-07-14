@@ -1,7 +1,6 @@
 ﻿namespace P04.AddMinion
 {
     using System;
-    using System.Text;
     using System.Linq;
     using System.Data.SqlClient;
     using P04.AddMinion.Readers;
@@ -25,51 +24,17 @@
             using SqlConnection sqlConnection = new SqlConnection(Config.ConnectionString);
             sqlConnection.Open();
 
-            SqlTransaction sqlTransaction = sqlConnection.BeginTransaction();
+            int townId = GetTownID(sqlConnection, minionTown);
 
-            try
-            {
-                string townId = GetTownID(sqlConnection, minionTown);
+            int villainId = GetVillainId(sqlConnection, villainName);
 
-                string villainId = GetVillainId(sqlConnection, villainName);
+            AddMinionToDatabase(sqlConnection, minionName, minionAge, townId);
 
-                if (townId == null)
-                {
-                    AddTownToDatabase(minionTown, sqlConnection);
-                    townId = GetTownID(sqlConnection, minionTown);
-                }
+            int minionId = GetMinionId(sqlConnection, minionName);
 
-                if (villainId == null)
-                {
-                    villainId = GetVillainId(sqlConnection, villainName);
-                }
-
-                AddMinionToDatabase(sqlConnection, minionName, minionAge, townId);
-
-                int minionId = GetMinionId(sqlConnection, minionName);
-
-                AddMinionToVillain(sqlConnection, villainId, minionId, minionName, villainName);
-
-            }
-            catch (Exception ex )
-            {
-                sqlTransaction.Rollback();
-                Console.WriteLine(ex.Message);
-            }
+            AddMinionToVillain(sqlConnection, villainId, minionId, minionName, villainName);
 
             sqlConnection.Close();
-        }
-
-        private static void AddMinionToVillain(SqlConnection sqlConnection, string villainId, int minionId, string minionName, string villainName)
-        {
-            TextReader textReaderForInsertVillainsMinion = new TextReader("InsertMinionToVillain.sql");
-            string addMinionToVillainQuery = textReaderForInsertVillainsMinion.Read();
-            SqlCommand insertMinionToVillain = new SqlCommand(addMinionToVillainQuery, sqlConnection);
-            insertMinionToVillain.Parameters.AddWithValue("@VillainId", int.Parse(villainId));
-            insertMinionToVillain.Parameters.AddWithValue("@MinionId", minionId);
-
-            insertMinionToVillain.ExecuteNonQuery();
-            Console.WriteLine($"Successfully added {minionName} to be minion of {villainName}");
         }
 
         private static int GetMinionId(SqlConnection sqlConnection, string minionName)
@@ -82,7 +47,7 @@
             return (int)getMinionId.ExecuteScalar();
         }
 
-        private static string GetVillainId(SqlConnection sqlConnection, string villainName)
+        private static int GetVillainId(SqlConnection sqlConnection, string villainName)
         {
             TextReader textReaderForVillainId = new TextReader("GetVillainId.sql");
             string villainIdQuery = textReaderForVillainId.Read();
@@ -90,16 +55,16 @@
             getVillainId.Parameters.AddWithValue("@VillainName", villainName);
 
             object villainId = getVillainId.ExecuteScalar();
-            if(villainId == null)
+            if (villainId == null)
             {
                 AddVillainToDatabase(villainName, sqlConnection);
                 return GetVillainId(sqlConnection, villainName);
             }
 
-            return villainId.ToString();
+            return (int)villainId;
         }
 
-        private static string GetTownID(SqlConnection sqlConnection, string minionTown)
+        private static int GetTownID(SqlConnection sqlConnection, string minionTown)
         {
             TextReader textReaderForTownId = new TextReader("GetMinionTownId.sql");
             string InsertTownQuery = textReaderForTownId.Read();
@@ -113,7 +78,7 @@
                 return GetTownID(sqlConnection, minionTown);
             }
 
-            return towndId.ToString();
+            return (int)towndId;
         }
 
         private static void AddVillainToDatabase(string villainName, SqlConnection sqlConnection)
@@ -138,7 +103,7 @@
             Console.WriteLine($"Town {minionTown} was added to the database.");
         }
 
-        private static void AddMinionToDatabase(SqlConnection sqlConnection, string minionName, int minionAge, string townId)
+        private static void AddMinionToDatabase(SqlConnection sqlConnection, string minionName, int minionAge, int townId)
         {
             TextReader textReaderForInsertingAminion = new TextReader("InsertMinionQuery.sql");
             string insertMinionQuery = textReaderForInsertingAminion.Read();
@@ -146,9 +111,21 @@
 
             insertMinionToDatabase.Parameters.AddWithValue("@MinionName", minionName);
             insertMinionToDatabase.Parameters.AddWithValue("@MinionAge", minionAge);
-            insertMinionToDatabase.Parameters.AddWithValue("@MinionTownId", int.Parse(townId));
+            insertMinionToDatabase.Parameters.AddWithValue("@MinionTownId", townId);
 
             insertMinionToDatabase.ExecuteNonQuery();
+        }
+
+        private static void AddMinionToVillain(SqlConnection sqlConnection, int villainId, int minionId, string minionName, string villainName)
+        {
+            TextReader textReaderForInsertVillainsMinion = new TextReader("InsertMinionToVillain.sql");
+            string addMinionToVillainQuery = textReaderForInsertVillainsMinion.Read();
+            SqlCommand insertMinionToVillain = new SqlCommand(addMinionToVillainQuery, sqlConnection);
+            insertMinionToVillain.Parameters.AddWithValue("@VillainId", villainId);
+            insertMinionToVillain.Parameters.AddWithValue("@MinionId", minionId);
+
+            insertMinionToVillain.ExecuteNonQuery();
+            Console.WriteLine($"Successfully added {minionName} to be minion of {villainName}");
         }
     }
 }
