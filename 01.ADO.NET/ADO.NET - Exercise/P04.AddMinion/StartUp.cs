@@ -37,8 +37,7 @@
             }
 
             if (villainId == null)
-            {
-               
+            {            
                 villainId = GetVillainId(sqlConnection, villainName);
             }
 
