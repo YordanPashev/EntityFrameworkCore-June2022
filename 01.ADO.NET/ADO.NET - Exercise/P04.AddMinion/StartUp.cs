@@ -1,11 +1,11 @@
 ﻿namespace P04.AddMinion
 {
-
     using System;
     using System.Text;
     using System.Linq;
     using System.Data.SqlClient;
     using P04.AddMinion.Readers;
+
 
     public class StartUp
     {
@@ -26,26 +26,38 @@
             using SqlConnection sqlConnection = new SqlConnection(Config.ConnectionString);
             sqlConnection.Open();
 
-            string townId = GetTownID(sqlConnection, minionTown);
+            SqlTransaction sqlTransaction = sqlConnection.BeginTransaction();
 
-            string villainId = GetVillainId(sqlConnection, villainName);
-
-            if (townId == null)
+            try
             {
-                AddTownToDatabase(minionTown, sqlConnection);
-                townId = GetTownID(sqlConnection, minionTown);
+                string townId = GetTownID(sqlConnection, minionTown);
+
+                string villainId = GetVillainId(sqlConnection, villainName);
+
+                if (townId == null)
+                {
+                    AddTownToDatabase(minionTown, sqlConnection);
+                    townId = GetTownID(sqlConnection, minionTown);
+                }
+
+                if (villainId == null)
+                {
+
+                    villainId = GetVillainId(sqlConnection, villainName);
+                }
+
+                AddMinionToDatabase(sqlConnection, minionName, minionAge, townId);
+
+                int minionId = GetMinionId(sqlConnection, minionName);
+
+                AddMinionToVillain(sqlConnection, villainId, minionId, minionName, villainName);
+
             }
-
-            if (villainId == null)
-            {            
-                villainId = GetVillainId(sqlConnection, villainName);
+            catch (Exception ex )
+            {
+                sqlTransaction.Rollback();
+                Console.WriteLine(ex.Message);
             }
-
-            AddMinionToDatabase(sqlConnection, minionName, minionAge, townId);
-
-            int minionId = GetMinionId(sqlConnection, minionName);
-
-            AddMinionToVillain(sqlConnection, villainId, minionId, minionName, villainName);
 
             sqlConnection.Close();
         }
