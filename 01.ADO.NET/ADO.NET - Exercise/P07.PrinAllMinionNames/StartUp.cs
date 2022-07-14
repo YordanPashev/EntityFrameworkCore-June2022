@@ -41,6 +41,8 @@
             {
                 Console.WriteLine(minions[0]);
             }
+
+            sqlConnection.Close();
         }
     }
 }

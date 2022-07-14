@@ -47,6 +47,8 @@
 
             Console.WriteLine($"{changedNamesCount} town names were affected.");
             Console.WriteLine($"[{string.Join(", ", namesChangedList)}]");
+
+            sqlConnection.Close();
         }
     }
 }
