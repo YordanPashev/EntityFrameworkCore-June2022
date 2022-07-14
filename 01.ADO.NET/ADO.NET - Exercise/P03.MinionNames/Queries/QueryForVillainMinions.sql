@@ -5,5 +5,5 @@ LEFT JOIN [MinionsVillains] as mv
        ON v.[Id] = mv.[VillainId] 
 LEFT JOIN [Minions] AS m
        ON mv.[MinionId] = m.[Id]
-    WHERE v.[Id] = @VillainId
+    WHERE mv.[VillainId] = @VillainId
  ORDER BY m.[Name]
