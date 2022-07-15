@@ -84,6 +84,7 @@
             Console.WriteLine($"{removedMinionCounter} minions were released.");
 
             sqlTransaction.Commit();
+            sqlConnection.Close();
         }
     }
 }
