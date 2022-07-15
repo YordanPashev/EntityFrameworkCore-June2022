@@ -34,36 +34,9 @@
 
                 else
                 {
-                    while (villainInfoReader.Read() == true)
-                    {
-                        villainName = (string)villainInfoReader["VillainName"];
-                        minionsIdToRemove.Add((int)villainInfoReader["MinionId"]);
-                        removedMinionCounter++;
-                    }
-
-                    villainInfoReader.Close();
-
-                    TextReader textReaderDeleteVillain = new TextReader("DeleteVillainFromDatabase.sql");
-                    string deleteVillainQuery = textReaderDeleteVillain.Read();
-                    SqlCommand removeVillainFromDatabaseCmd = new SqlCommand(deleteVillainQuery, sqlConnection, sqlTransaction);
-                    removeVillainFromDatabaseCmd.Parameters.AddWithValue("@VillainId", villainId);
-
-                    removeVillainFromDatabaseCmd.ExecuteNonQuery();
-
-                    foreach (var minionId in minionsIdToRemove)
-                    {
-                        TextReader textReaderDeleteVillainsMinions = new TextReader("DeleteVillainsMinions.sql");
-                        string deleteVillainMinionsQuery = textReaderDeleteVillainsMinions.Read();
-                        SqlCommand removeVillainMinionsFromDatabaseCmd = new SqlCommand(deleteVillainMinionsQuery, sqlConnection, sqlTransaction);
-                        removeVillainMinionsFromDatabaseCmd.Parameters.AddWithValue("@MinionId", minionId);
-
-                        removeVillainMinionsFromDatabaseCmd.ExecuteNonQuery();
-                    }
-
-                    Console.WriteLine($"{villainName} was deleted.");
-                    Console.WriteLine($"{removedMinionCounter} minions were released.");
-
-                    sqlTransaction.Commit();
+                    TryToDeleteVillainAndHisMinions(villainName, minionsIdToRemove, 
+                        removedMinionCounter, villainId, 
+                        villainInfoReader, sqlTransaction, sqlConnection);
                 }
             }
 
@@ -75,6 +48,42 @@
             }
 
             sqlConnection.Close();
+        }
+
+        private static void TryToDeleteVillainAndHisMinions
+            (string villainName, List<int> minionsIdToRemove, int removedMinionCounter, int villainId, 
+            SqlDataReader villainInfoReader, SqlTransaction sqlTransaction, SqlConnection sqlConnection)
+        {
+            while(villainInfoReader.Read() == true)
+            {
+                villainName = (string)villainInfoReader["VillainName"];
+                minionsIdToRemove.Add((int)villainInfoReader["MinionId"]);
+                removedMinionCounter++;
+            }
+
+            villainInfoReader.Close();
+
+            TextReader textReaderDeleteVillain = new TextReader("DeleteVillainFromDatabase.sql");
+            string deleteVillainQuery = textReaderDeleteVillain.Read();
+            SqlCommand removeVillainFromDatabaseCmd = new SqlCommand(deleteVillainQuery, sqlConnection, sqlTransaction);
+            removeVillainFromDatabaseCmd.Parameters.AddWithValue("@VillainId", villainId);
+
+            removeVillainFromDatabaseCmd.ExecuteNonQuery();
+
+            foreach (var minionId in minionsIdToRemove)
+            {
+                TextReader textReaderDeleteVillainsMinions = new TextReader("DeleteVillainsMinions.sql");
+                string deleteVillainMinionsQuery = textReaderDeleteVillainsMinions.Read();
+                SqlCommand removeVillainMinionsFromDatabaseCmd = new SqlCommand(deleteVillainMinionsQuery, sqlConnection, sqlTransaction);
+                removeVillainMinionsFromDatabaseCmd.Parameters.AddWithValue("@MinionId", minionId);
+
+                removeVillainMinionsFromDatabaseCmd.ExecuteNonQuery();
+            }
+
+            Console.WriteLine($"{villainName} was deleted.");
+            Console.WriteLine($"{removedMinionCounter} minions were released.");
+
+            sqlTransaction.Commit();
         }
     }
 }
