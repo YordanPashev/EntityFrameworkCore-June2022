@@ -3,11 +3,12 @@
 namespace ORM_Fundamentals
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using Data;
+    using System.Collections.Generic;
+    using System.Collections.Generic;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.VisualBasic;
+    using Data;
     using ORM_Fundamentals.Data.Models;
 
     internal class Program
