@@ -2,7 +2,7 @@
 
 [**1. ADO.NET**](https://github.com/YordanPashev/EntityFrameworkCore-June2022)
 
-[**2.ORM Fundamentals**](https://github.com/YordanPashev/EntityFrameworkCore-June2022/tree/main/02.ORM%20Fundamentals)
+[**2. ORM Fundamentals**](https://github.com/YordanPashev/EntityFrameworkCore-June2022/tree/main/02.ORM%20Fundamentals)
 
 [**3. Entity Framework Introduction**](https://github.com/YordanPashev/EntityFrameworkCore-June2022/tree/main/03.Entity%20Framework%20Introduction)
 
