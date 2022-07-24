@@ -9,8 +9,6 @@
 
     public class Album
     {
-        private decimal price;
-
         public Album()
         {
             this.Songs = new HashSet<Song>();
