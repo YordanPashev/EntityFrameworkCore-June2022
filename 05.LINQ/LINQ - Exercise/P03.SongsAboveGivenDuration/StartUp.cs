@@ -66,28 +66,28 @@
 
             return output.ToString().Trim();
 
-        ////AlternativeSolution
-        //var selectedSong = context.Songs
-        //        .Include(s => s.SongPerformers)
-        //        .ThenInclude(s => s.Performer)
-        //        .Include(s => s.Album)
-        //        .ThenInclude(s => s.Producer)
-        //        .Include(s => s.Writer)
-        //        .Where(s => s.Duration > minDuration)
-        //        .Select(s => new
-        //        {
-        //            SongName = s.Name,
-        //            Writer = s.Writer.Name,
-        //            Performer = s.SongPerformers
-        //            .Select(sp => $"{sp.Performer.FirstName} {sp.Performer.LastName}")
-        //            .FirstOrDefault(),
-        //            AlbumProducer = s.Album.Producer.Name,
-        //            Duration = s.Duration.ToString("c")
-        //        })
-        //        .ToArray()
-        //        .OrderBy(s => s.SongName)
-        //        .ThenBy(s => s.Writer)
-        //        .ThenBy(s => s.Performer);
+            ////AlternativeSolution
+            //var selectedSong = context.Songs
+            //        .Include(s => s.SongPerformers)
+            //        .ThenInclude(s => s.Performer)
+            //        .Include(s => s.Album)
+            //        .ThenInclude(s => s.Producer)
+            //        .Include(s => s.Writer)
+            //        .Where(s => s.Duration > minDuration)
+            //        .Select(s => new
+            //        {
+            //            SongName = s.Name,
+            //            Writer = s.Writer.Name,
+            //            Performer = s.SongPerformers
+            //            .Select(sp => $"{sp.Performer.FirstName} {sp.Performer.LastName}")
+            //            .FirstOrDefault(),
+            //            AlbumProducer = s.Album.Producer.Name,
+            //            Duration = s.Duration.ToString("c")
+            //        })
+            //        .ToArray()
+            //        .OrderBy(s => s.SongName)
+            //        .ThenBy(s => s.Writer)
+            //        .ThenBy(s => s.Performer);
         }
     }
 }
