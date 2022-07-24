@@ -58,7 +58,7 @@
 
             ////Alternative Solution
             //var albums = context.Albums
-            //                .Where(p => p.ProducerId == producerId)
+            //                .Where(p => p.ProducerId.Value == producerId)
             //                .ToArray()
             //                .OrderByDescending(a => a.Price)
             //                .Select(a => new
@@ -112,7 +112,3 @@
         }
     }
 }
-
-
-
-
