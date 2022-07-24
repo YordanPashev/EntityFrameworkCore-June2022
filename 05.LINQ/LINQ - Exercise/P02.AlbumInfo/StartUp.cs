@@ -56,10 +56,8 @@
 
             return output.ToString().TrimEnd();
 
-            ////AlternativeSolution
+            ////Alternative Solution
             //var albums = context.Albums
-            //                .Include(s => s.Songs)
-            //                .ThenInclude(p => p.Album.Producer)
             //                .Where(p => p.ProducerId == producerId)
             //                .ToArray()
             //                .OrderByDescending(a => a.Price)
