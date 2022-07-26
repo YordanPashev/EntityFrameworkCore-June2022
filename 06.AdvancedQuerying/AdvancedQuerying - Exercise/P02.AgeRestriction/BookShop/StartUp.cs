@@ -13,7 +13,7 @@
         public static void Main()
         {
             using var db = new BookShopContext();
-            DbInitializer.ResetDatabase(db);
+            //DbInitializer.ResetDatabase(db);
             string ageGroup = Console.ReadLine();
             string result = GetBooksByAgeRestriction(db, ageGroup);
             Console.WriteLine(result);
@@ -21,10 +21,16 @@
 
         public static string GetBooksByAgeRestriction(BookShopContext context, string command)
         {
-            string ageGroup = command.First().ToString().ToUpper() + string.Join("", command.ToLower().Skip(1));
-            AgeRestriction ageRestriction = (AgeRestriction)Enum.Parse (typeof(AgeRestriction), ageGroup);
+            AgeRestriction ageGroup;
+            bool parseSuccess = Enum.TryParse<AgeRestriction>(command, true, out ageGroup);
+
+            if (!parseSuccess)
+            {
+                return string.Empty;
+            }
+
             var filteredBooks = context.Books
-                .Where(b => b.AgeRestriction == ageRestriction)
+                .Where(b => b.AgeRestriction == ageGroup)
                 .OrderBy(b => b.Title)
                 .Select(b => b.Title)
                 .ToArray();
