@@ -1,4 +1,4 @@
-﻿namespace BookShop
+namespace BookShop
 {
     using System;
     using System.Linq;
@@ -19,12 +19,11 @@
 
         public static string GetGoldenBooks(BookShopContext context)
         {
-            EditionType goldernEdition = (EditionType)Enum.Parse(typeof(EditionType), "Gold");
             int maxCopies = 5000;
 
             string[] goldenEditionBooks = context.Books
-                .Where(b => b.Copies < maxCopies && 
-                            b.EditionType == goldernEdition)
+                .Where(b => b.Copies < maxCopies &&
+                            b.EditionType == EditionType.Gold)
                 .OrderBy(b => b.BookId)
                 .Select(b => b.Title)
                 .ToArray();
@@ -37,6 +36,5 @@
             }
 
             return output.ToString().TrimEnd();
-        }
     }
 }
