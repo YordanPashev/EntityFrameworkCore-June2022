@@ -1,0 +1,12 @@
+C:\Users\pashe\Documents\GitHub\EntityFrameworkCore-June2022\07.Auto Mapping Objects\Auto Mapping Objects - Exercise\FastFood.Serices.Models\bin\Debug\net6.0\FastFood.Services.Models.deps.json
+C:\Users\pashe\Documents\GitHub\EntityFrameworkCore-June2022\07.Auto Mapping Objects\Auto Mapping Objects - Exercise\FastFood.Serices.Models\bin\Debug\net6.0\FastFood.Services.Models.dll
+C:\Users\pashe\Documents\GitHub\EntityFrameworkCore-June2022\07.Auto Mapping Objects\Auto Mapping Objects - Exercise\FastFood.Serices.Models\bin\Debug\net6.0\ref\FastFood.Services.Models.dll
+C:\Users\pashe\Documents\GitHub\EntityFrameworkCore-June2022\07.Auto Mapping Objects\Auto Mapping Objects - Exercise\FastFood.Serices.Models\bin\Debug\net6.0\FastFood.Services.Models.pdb
+C:\Users\pashe\Documents\GitHub\EntityFrameworkCore-June2022\07.Auto Mapping Objects\Auto Mapping Objects - Exercise\FastFood.Serices.Models\obj\Debug\net6.0\FastFood.Services.Models.csproj.AssemblyReference.cache
+C:\Users\pashe\Documents\GitHub\EntityFrameworkCore-June2022\07.Auto Mapping Objects\Auto Mapping Objects - Exercise\FastFood.Serices.Models\obj\Debug\net6.0\FastFood.Services.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pashe\Documents\GitHub\EntityFrameworkCore-June2022\07.Auto Mapping Objects\Auto Mapping Objects - Exercise\FastFood.Serices.Models\obj\Debug\net6.0\FastFood.Services.Models.AssemblyInfoInputs.cache
+C:\Users\pashe\Documents\GitHub\EntityFrameworkCore-June2022\07.Auto Mapping Objects\Auto Mapping Objects - Exercise\FastFood.Serices.Models\obj\Debug\net6.0\FastFood.Services.Models.AssemblyInfo.cs
+C:\Users\pashe\Documents\GitHub\EntityFrameworkCore-June2022\07.Auto Mapping Objects\Auto Mapping Objects - Exercise\FastFood.Serices.Models\obj\Debug\net6.0\FastFood.Services.Models.csproj.CoreCompileInputs.cache
+C:\Users\pashe\Documents\GitHub\EntityFrameworkCore-June2022\07.Auto Mapping Objects\Auto Mapping Objects - Exercise\FastFood.Serices.Models\obj\Debug\net6.0\FastFood.Services.Models.dll
+C:\Users\pashe\Documents\GitHub\EntityFrameworkCore-June2022\07.Auto Mapping Objects\Auto Mapping Objects - Exercise\FastFood.Serices.Models\obj\Debug\net6.0\ref\FastFood.Services.Models.dll
+C:\Users\pashe\Documents\GitHub\EntityFrameworkCore-June2022\07.Auto Mapping Objects\Auto Mapping Objects - Exercise\FastFood.Serices.Models\obj\Debug\net6.0\FastFood.Services.Models.pdb
