@@ -27,6 +27,7 @@
             this.CreateMap<Position, PositionsAllViewModel>()
                 .ForMember(x => x.Name, y => y.MapFrom(s => s.Name));
 
+            //Category
             this.CreateMap<CreateCategoryDTO, Category>();
 
             this.CreateMap<CreateCategoryInputModel, CreateCategoryDTO>()
