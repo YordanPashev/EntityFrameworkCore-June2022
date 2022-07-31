@@ -21,7 +21,6 @@
 
             string filePath = ("../../../Results/sales-discounts.json");
 
-
             string jsonResult = GetSalesWithAppliedDiscount(context);
 
             Console.WriteLine(jsonResult);
