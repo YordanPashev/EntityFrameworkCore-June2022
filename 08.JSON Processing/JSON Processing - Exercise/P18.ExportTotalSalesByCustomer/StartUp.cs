@@ -75,7 +75,7 @@
             return formatting;
         }
 
-        //Alternative Solution which Jusge System does not accept
+        //Alternative Solution which Judge System does not accept
         //public static string GetTotalSalesByCustomer(CarDealerContext context)
         //{
         //    ExportCustomerCarsPartsInfoDTO[] customerCarsInfo = context.Customers
