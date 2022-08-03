@@ -41,8 +41,8 @@
             context.Parts.AddRange(partsToAdd);
             context.SaveChanges();
 
-            int addedUsersCount = partsToAdd.Length;
-            return $"Successfully imported {addedUsersCount}";
+            int addedPartsCount = partsToAdd.Length;
+            return $"Successfully imported {addedPartsCount}";
         }
 
 
