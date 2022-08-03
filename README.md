@@ -14,7 +14,7 @@
 
 [**7. Auto Mapping Objects**](https://github.com/YordanPashev/EntityFrameworkCore-June2022/tree/main/07.Auto%20Mapping%20Objects)
 
-[**8. JSON Processing**](https://github.com/YordanPashev/EntityFrameworkCore-June2022/tree/main/08.JSON%20Processing
+[**8. JSON Processing**](https://github.com/YordanPashev/EntityFrameworkCore-June2022/tree/main/08.JSON%20Processing)
 
 [**9. XML Processing**](https://github.com/YordanPashev/EntityFrameworkCore-June2022/tree/main/09.XML%20Processing)
 
