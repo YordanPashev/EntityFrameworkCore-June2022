@@ -51,8 +51,8 @@
             context.Cars.AddRange(cars);
             context.SaveChanges();
 
-            int addedUsersCount = cars.Count();
-            return $"Successfully imported {addedUsersCount}";
+            int addedCarsCount = cars.Count();
+            return $"Successfully imported {addedCarsCount}";
         }
     }
 }
