@@ -39,8 +39,8 @@
             context.Suppliers.AddRange(supplierToAdd);
             context.SaveChanges();
 
-            int addedUsersCount = supplierToAdd.Length;
-            return $"Successfully imported {addedUsersCount}";
+            int addedSuppliersCount = supplierToAdd.Length;
+            return $"Successfully imported {addedSuppliersCount}";
         }
 
 
