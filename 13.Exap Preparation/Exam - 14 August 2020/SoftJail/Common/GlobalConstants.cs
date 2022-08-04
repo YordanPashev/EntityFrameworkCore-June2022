@@ -30,6 +30,6 @@ namespace SoftJail.Common
         public const int CellNumberMax = 1000;
         
         //Mail
-        public const string MailAddressRegex = @"^([0-9A-Za-z\s]+)(\sstr.)$";
+        public const string MailAddressRegex = @"^([0-9A-Za-z\s]+)(\s)(str.)$";
     }
 }
