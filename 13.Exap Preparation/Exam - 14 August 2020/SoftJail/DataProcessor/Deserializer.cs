@@ -79,6 +79,7 @@
                     ReleaseDate = isValidReleasedDate
                                   ? (DateTime?)releasedDate
                                   : null,
+                    Bail = prisonerDto.Mail
                     CellId = prisonerDto.CellId,
                     Mails = Mapper.Map<Mail[]>(prisonerDto.Mails)
 
