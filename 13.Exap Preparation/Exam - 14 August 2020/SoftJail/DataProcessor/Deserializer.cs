@@ -62,7 +62,7 @@
                     continue;
                 }
 
-                var isValidReleasedDate = DateTime.TryParseExact(prisonerDto.ReleaseDate, 
+                var isReleasedDateValid = DateTime.TryParseExact(prisonerDto.ReleaseDate, 
                                                                  "dd/MM/yyyy",
                                                                  CultureInfo.InvariantCulture, 
                                                                  DateTimeStyles.None, 
@@ -76,7 +76,7 @@
                     IncarcerationDate = DateTime.ParseExact(prisonerDto.IncarcerationDate,
                                                             "dd/MM/yyyy",
                                                             CultureInfo.InvariantCulture),
-                    ReleaseDate = isValidReleasedDate
+                    ReleaseDate = isReleasedDateValid
                                   ? (DateTime?)releasedDate
                                   : null,
                     Bail = prisonerDto.Bail,
