@@ -20,7 +20,7 @@
 
         [Required]
         [JsonProperty("Nickname")]
-        [RegularExpression("The [A-Z]{1}[a-z]+")]
+        [RegularExpression(GlobalConstants.PrisonerNickNameRegex)]
         public string Nickname { get; set; }
 
         [Required]
