@@ -13,7 +13,7 @@ namespace SoftJail.Common
         public const int PrisonerMaxAge = 65;
         public const double BailMinAmount = 0;
         public const double BailMaxAmount = double.MaxValue;
-        public const string PrisonerNickNameRegex = @"^(The\s)([A-Z]{1}[a-z]*)$";
+        public const string PrisonerNickNameRegex = @"^(The\s)([A-Z]{1}[a-z]+)$";
 
         //Officer
         public const int OfficerFullNameMinLength = 3;
@@ -30,6 +30,6 @@ namespace SoftJail.Common
         public const int CellNumberMax = 1000;
         
         //Mail
-        public const string MailAddressRegex = @"^[0-9A-Za-z\\s]+ str.$";
+        public const string MailAddressRegex = @"^([0-9A-Za-z\s]+)(\sstr.)$";
     }
 }
