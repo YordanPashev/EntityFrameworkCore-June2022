@@ -3,6 +3,8 @@
 
     using Newtonsoft.Json;
     using System.ComponentModel.DataAnnotations;
+     
+    using SoftJail.Common;
 
     [JsonObject]
     public class ImportMailDto
@@ -16,7 +18,7 @@
         public string Sender { get; set; }
 
         [Required]
-        [RegularExpression("^[0-9A-Za-z\\s]+ str.$")]
+        [RegularExpression(GlobalConstants.MailAddressRegex)]
         [JsonProperty("Address")]
         public string Address { get; set; }
     }
