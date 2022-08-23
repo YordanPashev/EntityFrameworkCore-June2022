@@ -1,7 +1,8 @@
-﻿using EFCoreBestPractices.Core.Models;
-
-namespace EFCoreBestPractices.Core.Contracts
+﻿namespace EFCoreBestPractices.Core.Contracts
 {
+
+    using EFCoreBestPractices.Core.Models;
+
     public interface IEmployeeService
     {
         Task<string> AddDepartment(ImportDepartmentModel model);

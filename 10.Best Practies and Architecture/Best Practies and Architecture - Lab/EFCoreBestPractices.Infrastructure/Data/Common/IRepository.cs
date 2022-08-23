@@ -1,7 +1,8 @@
-﻿using System.Linq.Expressions;
-
-namespace EFCoreBestPractices.Infrastructure.Data.Common
+﻿namespace EFCoreBestPractices.Infrastructure.Data.Common
 {
+
+    using System.Linq.Expressions;
+
     /// <summary>
     /// Abstraction of repository access methods
     /// </summary>

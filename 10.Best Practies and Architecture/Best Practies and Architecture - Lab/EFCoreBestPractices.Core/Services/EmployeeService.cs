@@ -1,13 +1,15 @@
-﻿using EFCoreBestPractices.Core.Contracts;
-using EFCoreBestPractices.Core.Models;
-using EFCoreBestPractices.Infrastructure.Data;
-using EFCoreBestPractices.Infrastructure.Data.Common;
-using EFCoreBestPractices.Infrastructure.Data.Models;
-using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
-
-namespace EFCoreBestPractices.Core.Services
+﻿namespace EFCoreBestPractices.Core.Services
 {
+
+    using Microsoft.EntityFrameworkCore;
+    using System.ComponentModel.DataAnnotations;
+
+    using Core.Models;
+    using Core.Contracts;
+    using Infrastructure.Data;
+    using Infrastructure.Data.Common;
+    using Infrastructure.Data.Models;
+
     public class EmployeeService : IEmployeeService
     {
         private readonly ISoftUniRepository repo;

@@ -1,12 +1,12 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using EFCoreBestPractices.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
-using EFCoreBestPractices.Infrastructure.Data.Common;
-using EFCoreBestPractices.Core.Contracts;
-using EFCoreBestPractices.Core.Services;
-using EFCoreBestPractices.Infrastructure.Data.Models;
+using Microsoft.Extensions.DependencyInjection;
+
 using EFCoreBestPractices.Core.Models;
+using EFCoreBestPractices.Core.Services;
+using EFCoreBestPractices.Core.Contracts;
+using EFCoreBestPractices.Infrastructure.Data;
+using EFCoreBestPractices.Infrastructure.Data.Common;
 
 var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)

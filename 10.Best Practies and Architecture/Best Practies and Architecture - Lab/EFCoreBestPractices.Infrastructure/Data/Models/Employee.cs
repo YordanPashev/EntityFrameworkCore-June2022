@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
-
-namespace EFCoreBestPractices.Infrastructure.Data.Models
+﻿namespace EFCoreBestPractices.Infrastructure.Data.Models
 {
+
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    using Microsoft.EntityFrameworkCore;
+
     public partial class Employee
     {
         public Employee()

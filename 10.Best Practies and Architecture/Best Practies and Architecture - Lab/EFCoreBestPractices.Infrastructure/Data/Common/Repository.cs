@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System.Linq.Expressions;
-
-namespace EFCoreBestPractices.Infrastructure.Data.Common
+﻿namespace EFCoreBestPractices.Infrastructure.Data.Common
 {
+    using System.Linq.Expressions;
+
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.ChangeTracking;
+
     /// <summary>
     /// Implementation of repository access methods
     /// for Relational Database Engine

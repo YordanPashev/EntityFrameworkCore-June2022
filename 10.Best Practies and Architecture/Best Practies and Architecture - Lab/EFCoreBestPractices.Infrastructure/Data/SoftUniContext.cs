@@ -1,8 +1,9 @@
-﻿using EFCoreBestPractices.Infrastructure.Data.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace EFCoreBestPractices.Infrastructure.Data
+﻿namespace EFCoreBestPractices.Infrastructure.Data
 {
+
+    using EFCoreBestPractices.Infrastructure.Data.Models;
+
+    using Microsoft.EntityFrameworkCore;
     public partial class SoftUniContext : DbContext
     {
         public SoftUniContext()
