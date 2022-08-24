@@ -24,7 +24,7 @@
 
 [**12. Exam Preparation**](https://github.com/YordanPashev/EntityFrameworkCore-June2022/tree/main/12.Exam%20Preparation)
 
-[**13. 13.Exam - 6 August 2022**](https://github.com/YordanPashev/EntityFrameworkCore-June2022/tree/main/13.Exam%20-%206%20August%202022)
+[**13. Exam - 6 August 2022**](https://github.com/YordanPashev/EntityFrameworkCore-June2022/tree/main/13.Exam%20-%206%20August%202022)
 
 
 
