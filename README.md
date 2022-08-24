@@ -18,6 +18,13 @@
 
 [**9. XML Processing**](https://github.com/YordanPashev/EntityFrameworkCore-June2022/tree/main/09.XML%20Processing)
 
+[**10. Best Practies and Architecture**](https://github.com/YordanPashev/EntityFrameworkCore-June2022/tree/main/10.Best%20Practies%20and%20Architecture)
+
+[**11. NoSQL**]()
+
+[**12. XML Exam Preparation**](https://github.com/YordanPashev/EntityFrameworkCore-June2022/tree/main/12.Exam%20Preparation)
+
+[**13. 13.Exam - 6 August 2022**](https://github.com/YordanPashev/EntityFrameworkCore-June2022/tree/main/13.Exam%20-%206%20August%202022)
 
 
 
